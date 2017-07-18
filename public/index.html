@@ -530,13 +530,11 @@ Humble in victory, humble in defeat. Depends on the environment, but this is a g
 			</div>
 			<div class="contact-right-w3l" style="height: 730px">
 				<div class="contact-form" style="margin-top: 100px">
-					<form action="#" method="/">
-						<input id="contactfname" placeholder="NAME" name="Name" type="text" required="" />
-						<input id="contactlname" placeholder="LASTNAME" name="Name" type="text" required="" />
-						<input id="contactemail" placeholder="E-MAIL" name="Email" type="email" required="" />
-						<textarea id="contactmessage" placeholder="TYPE YOUR MESSAGE......" required=""></textarea>
-						<input id="send_email" type="button" value="Submit" name="login">
-					</form>
+					<input id="contactfname" placeholder="NAME" name="Name" type="text" required="" />
+					<input id="contactlname" placeholder="LASTNAME" name="Name" type="text" required="" />
+					<input id="contactemail" placeholder="E-MAIL" name="Email" type="email" required="" />
+					<textarea id="contactmessage" placeholder="TYPE YOUR MESSAGE......" required=""></textarea>
+					<input id="send_email" type="submit" value="Submit" name="login">
 				</div>
 			</div>
 			<div class="clearfix"> </div>
@@ -555,30 +553,6 @@ Humble in victory, humble in defeat. Depends on the environment, but this is a g
 	<!-- copyright-ends-here -->
 	<!-- //main-section-ends-here -->
 
-
-
-	<script>
-		jQuery(document).ready(function( $ ) {
-			$("#send_email").click(function() {
-		      var from,to,subject,text,fname,lname,name;
-		      to="mb.iordache@gmail.com";
-		      subject="contact: mariusiordache.me";
-		      text=$("#contactmessage").val();
-					from=$("#contactemail").val();
-					fname=$("#contactfname").val();
-					lname=$("#contactlname").val();
-					name=fname+" "+lname;
-		      $("#message").text("Sending E-mail...Please wait");
-		      $.post("/",{to:to,subject:subject,text:text,from:from,name:name}, function(data) {
-		        // if (data=="sent") {
-		        //     $("#message").empty().html("
-		        //       Email is been sent at "+to+" . Please check inbox!
-		        //     ");
-		        // }
-		      });
-		  });
-		});
-	</script>
 	<!-- Custom-JavaScript-Files -->
 
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script> <!-- Default-JavaScript-File -->
@@ -688,6 +662,29 @@ Humble in victory, humble in defeat. Depends on the environment, but this is a g
 
 
 <!-- //Custom-JavaScript-Files -->
+<script>
+	jQuery(document).ready(function( $ ) {
+		$("#send_email").click(function() {
+
+				var from,to,subject,text,fname,lname,name;
+				to="mb.iordache@gmail.com";
+				subject="contact: mariusiordache.me";
+				text=$("#contactmessage").val();
+				from=$("#contactemail").val();
+				fname=$("#contactfname").val();
+				lname=$("#contactlname").val();
+				name=fname+" "+lname;
+				$("#message").text("Sending E-mail...Please wait");
+				$.post("/",{to:to,subject:subject,text:text,from:from,name:name}, function(data) {
+					// if (data=="sent") {
+					//     $("#message").empty().html("
+					//       Email is been sent at "+to+" . Please check inbox!
+					//     ");
+					// }
+				});
+		});
+	});
+</script>
 
 </body>
 </html>
