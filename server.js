@@ -29,7 +29,7 @@ app.post('/', function(req, res) {
 	var mailOptions = {
    to : req.body.to,
    subject : req.body.subject,
-   text : "FROM: "+req.body.name+"\n\nMESSAGE: \n\n"+req.body.text,
+   text : "Name: "+req.body.name+"\nEmail: "+req.body.from+"\nMessage: \n\n"+req.body.text,
   }
 
 	smtpTransport.sendMail(mailOptions, function(error, response) {
