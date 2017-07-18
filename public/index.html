@@ -677,7 +677,7 @@ Humble in victory, humble in defeat. Depends on the environment, but this is a g
 				$("#message").text("Sending E-mail...Please wait");
 				$.post("/",{to:to,subject:subject,text:text,from:from,name:name}, function(data) {
 					if (data=="sent") {
-					    $("#contactmessage").empty().html("Your message has been sent. I will reply as soon as I can. Thanks!");
+					    $("#contactmessage").empty().val("Your message has been sent. I will reply as soon as I can. Thanks!");
 					}
 				});
 		});
